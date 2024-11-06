@@ -27,15 +27,15 @@ How To (Plugin Developers)
 
 ```xml
 <repository>
-    <id>papermc</id>
-    <url>https://repo.papermc.io/repository/maven-public/</url>
+    <id>geist</id>
+    <url>https://reposilite.aventox.com/releases</url>
 </repository>
 ```
 
 ```xml
 <dependency>
-    <groupId>io.papermc.paper</groupId>
-    <artifactId>paper-api</artifactId>
+    <groupId>com.aventox.geist</groupId>
+    <artifactId>geist</artifactId>
     <version>1.21.3-R0.1-SNAPSHOT</version>
     <scope>provided</scope>
 </dependency>
@@ -44,12 +44,12 @@ How To (Plugin Developers)
 ```kotlin
 repositories {
     maven {
-        url = uri("https://repo.papermc.io/repository/maven-public/")
+        url = uri("https://reposilite.aventox.com/releases")
     }
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.3-R0.1-SNAPSHOT")
+    compileOnly("com.aventox.geist:geist:1.21.3-R0.1-SNAPSHOT")
 }
 
 java {
