@@ -1,0 +1,115 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Levi=20He=C3=9Fmann?= <levihsmn@gmail.com>
+Date: Wed, 6 Nov 2024 10:06:30 +0100
+Subject: [PATCH] ref: Remove unused commands
+
+
+diff --git a/src/main/java/io/papermc/paper/command/PaperCommands.java b/src/main/java/io/papermc/paper/command/PaperCommands.java
+index 7b58b2d6297800c2dcdbf7539e5ab8e7703f39f1..5d7579a7c2e6ae19f3c8da9f13ab2d491e4cfe3e 100644
+--- a/src/main/java/io/papermc/paper/command/PaperCommands.java
++++ b/src/main/java/io/papermc/paper/command/PaperCommands.java
+@@ -25,6 +25,6 @@ public final class PaperCommands {
+         COMMANDS.forEach((s, command) -> {
+             server.server.getCommandMap().register(s, "Paper", command);
+         });
+-        server.server.getCommandMap().register("bukkit", new PaperPluginsCommand());
++        //server.server.getCommandMap().register("bukkit", new PaperPluginsCommand());
+     }
+ }
+diff --git a/src/main/java/net/minecraft/commands/Commands.java b/src/main/java/net/minecraft/commands/Commands.java
+index 260350422fc724ba5cd5769cbb387b6007f36a84..f821ee6d32ca9fcd9c261d27720cee5a16bf069f 100644
+--- a/src/main/java/net/minecraft/commands/Commands.java
++++ b/src/main/java/net/minecraft/commands/Commands.java
+@@ -160,16 +160,16 @@ public class Commands {
+ 
+     public Commands(Commands.CommandSelection environment, CommandBuildContext commandRegistryAccess) {
+         // Paper
+-        AdvancementCommands.register(this.dispatcher);
+-        AttributeCommand.register(this.dispatcher, commandRegistryAccess);
+-        ExecuteCommand.register(this.dispatcher, commandRegistryAccess);
+-        BossBarCommands.register(this.dispatcher, commandRegistryAccess);
++        //AdvancementCommands.register(this.dispatcher);
++        //AttributeCommand.register(this.dispatcher, commandRegistryAccess);
++        //ExecuteCommand.register(this.dispatcher, commandRegistryAccess);
++        //BossBarCommands.register(this.dispatcher, commandRegistryAccess);
+         ClearInventoryCommands.register(this.dispatcher, commandRegistryAccess);
+-        CloneCommands.register(this.dispatcher, commandRegistryAccess);
+-        DamageCommand.register(this.dispatcher, commandRegistryAccess);
+-        DataCommands.register(this.dispatcher);
+-        DataPackCommand.register(this.dispatcher);
+-        DebugCommand.register(this.dispatcher);
++        //CloneCommands.register(this.dispatcher, commandRegistryAccess);
++        //DamageCommand.register(this.dispatcher, commandRegistryAccess);
++        //DataCommands.register(this.dispatcher);
++        //DataPackCommand.register(this.dispatcher);
++        //DebugCommand.register(this.dispatcher);
+         DefaultGameModeCommands.register(this.dispatcher);
+         DifficultyCommand.register(this.dispatcher);
+         EffectCommands.register(this.dispatcher, commandRegistryAccess);
+@@ -183,15 +183,15 @@ public class Commands {
+         GameModeCommand.register(this.dispatcher);
+         GameRuleCommand.register(this.dispatcher, commandRegistryAccess);
+         GiveCommand.register(this.dispatcher, commandRegistryAccess);
+-        HelpCommand.register(this.dispatcher);
++        //HelpCommand.register(this.dispatcher);
+         ItemCommands.register(this.dispatcher, commandRegistryAccess);
+         KickCommand.register(this.dispatcher);
+         KillCommand.register(this.dispatcher);
+         ListPlayersCommand.register(this.dispatcher);
+         LocateCommand.register(this.dispatcher, commandRegistryAccess);
+         LootCommand.register(this.dispatcher, commandRegistryAccess);
+-        MsgCommand.register(this.dispatcher);
+-        ParticleCommand.register(this.dispatcher, commandRegistryAccess);
++        //MsgCommand.register(this.dispatcher);
++        //ParticleCommand.register(this.dispatcher, commandRegistryAccess);
+         PlaceCommand.register(this.dispatcher);
+         PlaySoundCommand.register(this.dispatcher);
+         RandomCommand.register(this.dispatcher);
+@@ -200,10 +200,10 @@ public class Commands {
+         ReturnCommand.register(this.dispatcher);
+         RideCommand.register(this.dispatcher);
+         RotateCommand.register(this.dispatcher);
+-        SayCommand.register(this.dispatcher);
+-        ScheduleCommand.register(this.dispatcher);
+-        ScoreboardCommand.register(this.dispatcher, commandRegistryAccess);
+-        SeedCommand.register(this.dispatcher, environment != Commands.CommandSelection.INTEGRATED);
++        //SayCommand.register(this.dispatcher);
++        //ScheduleCommand.register(this.dispatcher);
++        //ScoreboardCommand.register(this.dispatcher, commandRegistryAccess);
++        //SeedCommand.register(this.dispatcher, environment != Commands.CommandSelection.INTEGRATED);
+         SetBlockCommand.register(this.dispatcher, commandRegistryAccess);
+         SetSpawnCommand.register(this.dispatcher);
+         SetWorldSpawnCommand.register(this.dispatcher);
+@@ -212,14 +212,14 @@ public class Commands {
+         StopSoundCommand.register(this.dispatcher);
+         SummonCommand.register(this.dispatcher, commandRegistryAccess);
+         TagCommand.register(this.dispatcher);
+-        TeamCommand.register(this.dispatcher, commandRegistryAccess);
+-        TeamMsgCommand.register(this.dispatcher);
++        //TeamCommand.register(this.dispatcher, commandRegistryAccess);
++        //TeamMsgCommand.register(this.dispatcher);
+         TeleportCommand.register(this.dispatcher);
+-        TellRawCommand.register(this.dispatcher, commandRegistryAccess);
++        //TellRawCommand.register(this.dispatcher, commandRegistryAccess);
+         TickCommand.register(this.dispatcher);
+         TimeCommand.register(this.dispatcher);
+-        TitleCommand.register(this.dispatcher, commandRegistryAccess);
+-        TriggerCommand.register(this.dispatcher);
++        //TitleCommand.register(this.dispatcher, commandRegistryAccess);
++        //TriggerCommand.register(this.dispatcher);
+         WeatherCommand.register(this.dispatcher);
+         WorldBorderCommand.register(this.dispatcher);
+         if (JvmProfiler.INSTANCE.isAvailable()) {
+diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
+index 64b56abf8900d0424100da460fc68ac964394793..0d056ea28d6736a5f263fcfb990a591bb6d3e50d 100644
+--- a/src/main/java/net/minecraft/server/MinecraftServer.java
++++ b/src/main/java/net/minecraft/server/MinecraftServer.java
+@@ -2008,7 +2008,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+ 
+     @DontObfuscate
+     public String getServerModName() {
+-        return io.papermc.paper.ServerBuildInfo.buildInfo().brandName(); // Paper
++        return "Geist"; // Paper
+     }
+ 
+     public SystemReport fillSystemReport(SystemReport details) {
